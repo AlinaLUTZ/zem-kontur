@@ -25,9 +25,11 @@
 
 ### 🧠 Архитектура системы
 
-![Архитектура Кадастр.Эксперт](docs/screenshots/architecture.png)
+Пользователь → Веб-интерфейс → n8n (workflow) →
+├─ YandexGPT (анализ)
+└─ PostgreSQL + PostGIS (данные) → PDF-отчёт
 
-Система построена на **суверенном стеке** с соблюдением рекомендаций [n8n Self-Hosting Best Practices](https://logicworkflow.com/blog/n8n-self-hosting-mistakes):
+*Все компоненты размещены на VPS в РФ. Нет ПДн. Соответствие ФЗ-152.*
 
 - **ИИ-ядро**: YandexGPT 5 Pro (fine-tuning под корпус земельного законодательства)  
 - **Workflow Engine**: n8n (self-hosted, Docker, multi-instance ready)  
